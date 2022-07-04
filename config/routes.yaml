@@ -1,3 +1,17 @@
 controllers:
-    resource: ../src/Controller/
-    type: attribute
+  resource: ../src/Controller/
+  type: attribute
+
+admin_app_add:
+  path: admin/ajout-produit
+  controller: App\Controller\ProduitController::add
+
+app_home:
+  path: /
+  controller: App\Controller\HomeController::home
+
+admin_app_update:
+  path: admin/update-produit/{id}
+  controller: App\Controller\ProduitController::update
+  requirements:
+    id: '\d+'
