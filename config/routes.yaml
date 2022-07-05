@@ -4,7 +4,7 @@ controllers:
 
 admin_app_add:
   path: admin/ajout-produit
-  controller: App\Controller\ProduitController::add
+  controller: App\Controller\AdminController::add
 
 app_home:
   path: /
@@ -12,6 +12,22 @@ app_home:
 
 admin_app_update:
   path: admin/update-produit/{id}
-  controller: App\Controller\ProduitController::update
+  controller: App\Controller\AdminController::update
+  requirements:
+    id: '\d+'
+
+admin_app_all:
+  path: /admin/gestion-produits
+  controller: App\Controller\AdminController::allProduits
+
+admin_app_delete:
+  path: admin/delete-produit/{id}
+  controller: App\Controller\AdminController::delete
+  requirements:
+    id: '\d+'
+
+admin_app_select:
+  path: admin/select-produit/{id}
+  controller: App\Controller\AdminController::select
   requirements:
     id: '\d+'

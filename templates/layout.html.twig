@@ -29,7 +29,7 @@
 						<a class="nav-link" href="">Inscription</a>
 						{# {% endif %} #}
 						{# {% if is_granted('IS_AUTHENTICATED_FULLY') and
-																																																																																				            is_granted('ROLE_ADMIN') %} #}
+																																																																																																																														            is_granted('ROLE_ADMIN') %} #}
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,63 +37,60 @@
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<li>
-								<a class="dropdown-item" href="">Ajout d'un vehicule</a>
+								<a class="dropdown-item" href="{{path('admin_app_add')}}">Ajout d'un produit</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="">Gestion Vehicule</a>
+								<a class="dropdown-item" href="{{path('admin_app_all')}}">Gestion des produits</a>
 							</li>
 							<li>
 								<a class="dropdown-item" href="#">Something else here</a>
 							</li>
 						</ul>
 					</li>
-					{# {% endif %} #}
-				</ul>
-			</div>
-		</div>
-	</nav>
-</div></header><main
-class="container mt-5 mb-5">
-{# {% for message in app.flashes('success') %}
-			<div class="alert alert-success text-center">
-				<p>{{ message }}</p>
-			</div>
-		{% endfor %}
-		{% for message in app.flashes('error') %}
-			<div class="alert alert-danger text-center">
-				<p>{{ message }}</p>
-			</div>
-		{% endfor %} #}
-{% block content %}{% endblock %}
-{# {% block final_js %}{% endblock #}
-	{# %} #}
-</main>
-<footer class="fixed-bottom bg-light">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-bottom">
-		<div class="collapse navbar-collapse">
-			<ul class="navbar-nav mx-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="">
-						- CGV</a>
+					<li class="nav-item">
+						<a class="nav-link" href="">Panier</a>
+					</li>
+
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">
-						- Nous contacter
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">
-						- Qui sommes nous</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">
-						- Nos Valeurs</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="">
-						- Rejoindre l'équipe</a>
-				</li>
+				{# {% endif %} #}
 			</ul>
 		</div>
-	</nav>
-</footer>{% endblock %}
+	</div>
+</nav></div></header><mainclass="containermt-5mb-5">{# {% for message in app.flashes('success') %}
+										<div class="alert alert-success text-center">
+											<p>{{ message }}</p>
+										</div>
+									{% endfor %}
+									{% for message in app.flashes('error') %}
+										<div class="alert alert-danger text-center">
+											<p>{{ message }}</p>
+										</div>
+									{% endfor %} #}{% block content %}{% endblock %}{# {% block final_js %}{% endblock #}
+{# %} #}</main><footer class="fixed-bottom bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-bottom">
+	<div class="collapse navbar-collapse">
+		<ul class="navbar-nav mx-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					- CGV</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					- Nous contacter
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					- Qui sommes nous</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					- Nos Valeurs</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="">
+					- Rejoindre l'équipe</a>
+			</li>
+		</ul>
+	</div>
+</nav></footer>{% endblock %}
