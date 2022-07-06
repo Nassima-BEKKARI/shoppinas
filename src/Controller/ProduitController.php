@@ -16,5 +16,21 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 
 class ProduitController extends AbstractController
 {
-  
+  public function select($id, ProduitRepository $repo)
+    {
+        $produit = $repo->find($id);
+
+        return $this->render('produit/produit.html.twig', [
+            'produit'=>$produit
+        ]);
+    }
+
+    public function allProduits(ProduitRepository $repo)
+    {
+        $produits = $repo->findAll();
+
+        return $this->render('produit/produits.html.twig', [
+            'produits'=>$produits
+        ]);
+    }
 }

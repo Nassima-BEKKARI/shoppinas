@@ -2,15 +2,19 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
    
-    public function home(): Response
+    public function home(ProduitRepository $repo): Response
     {
-        return $this->render('produit/home/index.html.twig');
+        $produits = $repo->findBy([], ["dateEnregistrement"=>"DESC"],5);
+        return $this->render('home/index.html.twig',[
+            'produits'=>$produits
+        ]);
     }
 }

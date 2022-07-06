@@ -4,6 +4,12 @@
 {% endblock
 %}
 {% block content %}
+
+	<a href="{{path('admin_app_add')}}">
+		<button class="btn btn-success text-white">
+			Ajouter un produit
+		</button>
+	</a>
 	<table>
 		<thead>
 			<tr>
@@ -47,4 +53,5 @@
 			{% endfor %}
 		</tbody>
 	</table>
+
 {% endblock %}

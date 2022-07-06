@@ -37,6 +37,9 @@ class Produit
     #[ORM\Column(type: 'date')]
     private $dateEnregistrement;
 
+    #[ORM\ManyToOne(targetEntity: Categorie::class, inversedBy: 'produits')]
+    private $categorie;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +137,18 @@ class Produit
     public function setDateEnregistrement(\DateTimeInterface $dateEnregistrement): self
     {
         $this->dateEnregistrement = $dateEnregistrement;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
 
         return $this;
     }

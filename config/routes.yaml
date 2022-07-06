@@ -3,7 +3,7 @@ controllers:
   type: attribute
 
 admin_app_add:
-  path: admin/ajout-produit
+  path: /admin/ajout-produit
   controller: App\Controller\AdminController::add
 
 app_home:
@@ -11,7 +11,7 @@ app_home:
   controller: App\Controller\HomeController::home
 
 admin_app_update:
-  path: admin/update-produit/{id}
+  path: /admin/update-produit/{id}
   controller: App\Controller\AdminController::update
   requirements:
     id: '\d+'
@@ -21,13 +21,21 @@ admin_app_all:
   controller: App\Controller\AdminController::allProduits
 
 admin_app_delete:
-  path: admin/delete-produit/{id}
+  path: /admin/delete-produit/{id}
   controller: App\Controller\AdminController::delete
   requirements:
     id: '\d+'
 
 admin_app_select:
-  path: admin/select-produit/{id}
-  controller: App\Controller\AdminController::select
+  path: /admin/select-produit/{id}
+  controller: App\Controller\ProduitController::select
   requirements:
     id: '\d+'
+
+app_allProduits:
+  path: /produits
+  controller: App\Controller\ProduitController::allProduits
+
+admin_app_addCategorie:
+  path: /admin/ajout-categorie
+  controller: App\Controller\AdminController::addCategorie

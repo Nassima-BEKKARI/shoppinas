@@ -4,17 +4,17 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="#">Shoppinas</a>
+				<a class="navbar-brand" href="{{path("app_home")}}">Shoppinas</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="">Home</a>
+							<a class="nav-link active" aria-current="page" href="{{path('app_home')}}">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="">Produits</a>
+							<a class="nav-link" href="{{path("app_allProduits")}}">Produits</a>
 						</li>
 					</li>
 					{# {% if is_granted('IS_AUTHENTICATED_FULLY')%} #}
@@ -28,8 +28,7 @@
 					<li class="nav-item">
 						<a class="nav-link" href="">Inscription</a>
 						{# {% endif %} #}
-						{# {% if is_granted('IS_AUTHENTICATED_FULLY') and
-																																																																																																																														            is_granted('ROLE_ADMIN') %} #}
+						{# {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_ADMIN') %} #}
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,10 +39,11 @@
 								<a class="dropdown-item" href="{{path('admin_app_add')}}">Ajout d'un produit</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="{{path('admin_app_all')}}">Gestion des produits</a>
+								<a class="dropdown-item" href="{{path('admin_app_addCategorie')}}">Ajout d'une catégorie</a>
 							</li>
+
 							<li>
-								<a class="dropdown-item" href="#">Something else here</a>
+								<a class="dropdown-item" href="{{path('admin_app_all')}}">Gestion des produits</a>
 							</li>
 						</ul>
 					</li>
@@ -56,16 +56,16 @@
 			</ul>
 		</div>
 	</div>
-</nav></div></header><mainclass="containermt-5mb-5">{# {% for message in app.flashes('success') %}
-										<div class="alert alert-success text-center">
-											<p>{{ message }}</p>
-										</div>
-									{% endfor %}
-									{% for message in app.flashes('error') %}
-										<div class="alert alert-danger text-center">
-											<p>{{ message }}</p>
-										</div>
-									{% endfor %} #}{% block content %}{% endblock %}{# {% block final_js %}{% endblock #}
+</nav></div></header><main class="container mt-5 mb-5">{# {% for message in app.flashes('success') %}
+															<div class="alert alert-success text-center">
+																<p>{{ message }}</p>
+															</div>
+														{% endfor %}
+														{% for message in app.flashes('error') %}
+															<div class="alert alert-danger text-center">
+																<p>{{ message }}</p>
+															</div>
+														{% endfor %} #}{% block content %}{% endblock %}{# {% block final_js %}{% endblock #}
 {# %} #}</main><footer class="fixed-bottom bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-bottom">
 	<div class="collapse navbar-collapse">

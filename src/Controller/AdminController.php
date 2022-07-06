@@ -4,8 +4,11 @@ namespace App\Controller;
 
 use DateTime;
 use App\Entity\Produit;
+use App\Entity\Categorie;
 use App\Form\ProduitType;
+use App\Form\CategorieType;
 use App\Repository\ProduitRepository;
+use App\Repository\CategorieRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -42,7 +45,7 @@ class AdminController extends AbstractController
 
             return $this->redirectToRoute('app_home');
         }
-        return $this->render('produit/admin/formulaire.html.twig',[
+        return $this->render('admin/formulaire.html.twig',[
             'formProduit'=> $form->createView()]);
     }
 
@@ -70,9 +73,9 @@ class AdminController extends AbstractController
         $manager->persist($produit);
         $manager->flush();
 
-        return $this->redirectToRoute('app_home');
+        return $this->redirectToRoute('admin_app_all');
         }
-        return $this->render('produit/admin/formulaire.html.twig', [
+        return $this->render('admin/formulaire.html.twig', [
             'formProduit' => $form->createView()
         ]);
     }
@@ -81,25 +84,32 @@ class AdminController extends AbstractController
     {
         $produits = $repo->findAll();
 
-        return $this->render('produit/admin/produits.html.twig', [
+        return $this->render('admin/produits.html.twig', [
             'produits'=>$produits
         ]);
     }
 
-    public function select($id, ProduitRepository $repo)
-    {
-        $produit = $repo->find($id);
-
-        return $this->render('produit/admin/produit.html.twig', [
-            'produit'=>$produit
-        ]);
-    }
 
     public function delete(ProduitRepository $repo, $id, )
     {
         $produit = $repo->find($id);
         $repo->remove($produit, 1);
 
-        return $this->redirectToRoute("produit/admin/produits.html.twig");
+        return $this->redirectToRoute("admin/produits.html.twig");
+    }
+
+    public function addCategorie(Request $request, CategorieRepository $repo)
+    {
+        $categorie = new Categorie();
+        $form = $this->createform(CategorieType::class, $categorie);
+        $form->handlerequest($request);
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $repo->add($categorie,1);
+            return $this->redirectToRoute("app_home");
+        }
+            return $this->render("admin/formulaireCategorie.html.twig",[
+            "formCategorie"=> $form->createView()]);
+        
     }
 }
