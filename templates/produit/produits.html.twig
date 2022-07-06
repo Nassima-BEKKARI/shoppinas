@@ -4,41 +4,51 @@
 {% endblock %}
 {%
 block content %}
-	<div class="row mt-5 justify-content-center text-center">
-
-
-		<h1>
+		<h2>
 			Liste des produits
-		</h1>
-
+		</h2>
+<div class="row mt-5">
+	<div class="col-md-2 justify-content-center pt-4">
+	{% for categorie in categories %}
+	<a class="text-decoration-none" href="{{path('app_select_categorie',{id:categorie.id})}}">
+		<ul class="list-group m-2">
+			<li class="list-group-item btn btn-primary text-center text-muted">{{categorie.nom}}</li>
+		</ul>
+	</a>
+	{% endfor %}
+	</div>
+	<div class="col-md-10">
 		{% for produit in produits %}
-			<div class="d-flex justify-content-center">
-				<div class="card mb-3" style="max-width: 800px;">
-					<div class="row g-0">
-						<div class="col-md-offset-1 col-md-5">
+		<div class="d-flex justify-content-center">
+			<div class="card mb-3" style="max-width: 800px;">
+				<div class="row g-0">
+					<div class="col-md-offset-1 col-md-5">
 
-							<img class="card-img-top" src="{{asset('photosProduits/' ~ produit.photo)}} " alt=" {{produit.photo}}">
-						</div>
-						<div class="col-md-4 m-5">
+						<img class="card-img-top" src="{{asset('photosProduits/' ~ produit.photo)}} " alt=" {{produit.photo}}">
+					</div>
+					<div class="col-md-4 m-5">
 
-							<h5 class="card-title">{{produit.titre}}</h5>
-							<h6 class="card-title">Couleur:
-								{{produit.couleur}}</h6>
-							<h6 class="card-title">Taille:
-								{{produit.taille}}</h6>
-							<h6 class="card-title">Il en reste:
-								{{produit.stock}}</h6>
-							<p class="card-text">Description:
-								{{produit.description}}</p>
-							<h5 class="card-title">Prix:
-								{{produit.prix}}
-								€</h5>
-							<a href="{{path("admin_app_select", {id:produit.id})}}" class="btn btn-primary">Voir le détail</a>
-
-						</div>
+						<h5 class="card-title">{{produit.titre}}</h5>
+						<h6 class="card-title">Couleur:
+							{{produit.couleur}}</h6>
+						<h6 class="card-title">Taille:
+							{{produit.taille}}</h6>
+						<h6 class="card-title">Il en reste:
+							{{produit.stock}}</h6>
+						<p class="card-text">Description:
+							{{produit.description}}</p>
+						<h5 class="card-title">Prix:
+							{{produit.prix}}
+							€</h5>
+						<h6 class="card-title">Catégorie:
+							{{produit.categorie.nom}}
+						</h6>
+						<a href="{{path("admin_app_select", {id:produit.id})}}" class="btn btn-primary">Voir le détail</a>
 					</div>
 				</div>
 			</div>
-
-		{% endfor %}
-	{% endblock %}
+		</div>
+{% endfor %}
+	</div>
+</div>
+{% endblock %}

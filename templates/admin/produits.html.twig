@@ -10,7 +10,7 @@
 			Ajouter un produit
 		</button>
 	</a>
-	<table>
+	<table class="table">
 		<thead>
 			<tr>
 				<th scope="col">Id</th>
@@ -21,6 +21,7 @@
 				<th scope="col">Photo</th>
 				<th scope="col">Prix</th>
 				<th scope="col">Stock</th>
+				<th scope="col">Catégorie</th>
 				<th scope="col">Date d'enregistrement</th>
 				<th scope="col">Action</th>
 			</tr>
@@ -36,6 +37,7 @@
 					<td>{{ produit.photo }}</td>
 					<td>{{ produit.prix }}</td>
 					<td>{{ produit.stock }}</td>
+					<td>{{ produit.categorie.nom }}</td>
 					<td>{{produit.dateEnregistrement|date("d/m/y")}}</td>
 					<td>
 						<a href="{{path("admin_app_select",{id:produit.id})}}">

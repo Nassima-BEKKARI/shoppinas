@@ -39,3 +39,21 @@ app_allProduits:
 admin_app_addCategorie:
   path: /admin/ajout-categorie
   controller: App\Controller\AdminController::addCategorie
+
+app_select_categorie:
+  path: /select-categorie/{id}
+  controller: App\Controller\ProduitController::categorieProduits
+  requirements:
+    id: '\d+'
+
+app_register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
+
+app_logout:
+  path: /logout
+  controller: App\Controller\SecurityController::logout
+
+app_login:
+  path: /login
+  controller: App\Controller\SecurityController::login

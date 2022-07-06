@@ -34,6 +34,10 @@ block content %}
 							<h5 class="card-title">Prix:
 								{{produit.prix}}
 								€</h5>
+							<h6 class="card-title">Catégorie:
+								{{produit.categorie.nom}}
+							</h6>
+
 							<a href="{{path("admin_app_select", {id:produit.id})}}" class="btn btn-primary">Voir le détail</a>
 
 						</div>
