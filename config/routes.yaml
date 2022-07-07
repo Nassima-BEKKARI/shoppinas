@@ -57,3 +57,9 @@ app_logout:
 app_login:
   path: /login
   controller: App\Controller\SecurityController::login
+
+app_be_admin:
+  path: /passer_admin/{id}
+  controller: App\Controller\SecurityController::passerAdmin
+  requirements:
+    id: '\d+'
