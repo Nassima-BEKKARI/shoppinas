@@ -40,7 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'date')]
     private $dateDeNaissance;
 
-    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commande::class)]
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Commande::class, orphanRemoval:true)]
     private $commandes;
 
     public function __construct()

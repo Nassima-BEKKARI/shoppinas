@@ -79,3 +79,11 @@ app_delete_panier:
   controller: App\Controller\PanierController::panierDelete
   requirements:
     id: '\d+'
+
+app_commande:
+  path: /commande
+  controller: App\Controller\CommandeController::index
+
+app_passer_commande:
+  path: /passer-commande
+  controller: App\Controller\CommandeController::passerCommande
