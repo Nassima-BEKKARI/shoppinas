@@ -63,3 +63,19 @@ app_be_admin:
   controller: App\Controller\SecurityController::passerAdmin
   requirements:
     id: '\d+'
+
+app_panier:
+  path: /panier
+  controller: App\Controller\PanierController::show
+
+app_add_panier:
+  path: /panier/add/{id}
+  controller: App\Controller\PanierController::panierAdd
+  requirements:
+    id: '\d+'
+
+app_delete_panier:
+  path: /panier/delete/{id}
+  controller: App\Controller\PanierController::panierDelete
+  requirements:
+    id: '\d+'
