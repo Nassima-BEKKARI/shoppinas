@@ -7,43 +7,42 @@ block content %}
 	<div class="row mt-5 justify-content-center text-center">
 
 
-		<h1>
-			Bienvenue chez Shoppinas! la prmeière plateforme de shopping en ligne au  NasLand
-		</h1>
-		<h3>Voici une sélection de nos derniers produits
-		</h3>
-		{% for produit in produits %}
-			<div class="d-flex justify-content-center">
-				<div class="card mb-3" style="max-width: 800px;">
-					<div class="row g-0">
-						<div class="col-md-offset-1 col-md-5">
+		<h2>
+			Bienvenue chez Chat La Land de Shoppinas! la prmière plateforme de vente de vêtements et accessoires de mode pour chat.
+			<h3>Voici une sélection de nos derniers produits
+			</h3>
+			{% for produit in produits %}
+				<div class="d-flex justify-content-center">
+					<div class="card mb-3" style="max-width: 800px;">
+						<div class="row g-0">
+							<div class="col-md-offset-1 col-md-5">
 
-							<img class="card-img-top" src="{{asset('photosProduits/' ~ produit.photo)}} " alt=" {{produit.photo}}">
-						</div>
-						<div class="col-md-4 m-5">
+								<img class="card-img-top" src="{{asset('photosProduits/' ~ produit.photo)}} " alt=" {{produit.photo}}">
+							</div>
+							<div class="col-md-4 m-5">
 
-							<h5 class="card-title">{{produit.titre}}</h5>
-							<h6 class="card-title">Couleur:
-								{{produit.couleur}}</h6>
-							<h6 class="card-title">Taille:
-								{{produit.taille}}</h6>
-							<h6 class="card-title">Il en reste:
-								{{produit.stock}}</h6>
-							<p class="card-text">Description:
-								{{produit.description}}</p>
-							<h5 class="card-title">Prix:
-								{{produit.prix}}
-								€</h5>
-							<h6 class="card-title">Catégorie:
-								{{produit.categorie.nom}}
-							</h6>
+								<h5 class="card-title">{{produit.titre}}</h5>
+								<h6 class="card-title">Couleur:
+									{{produit.couleur}}</h6>
+								<h6 class="card-title">Taille:
+									{{produit.taille}}</h6>
+								<h6 class="card-title">Il en reste:
+									{{produit.stock}}</h6>
+								<p class="card-text">Description:
+									{{produit.description}}</p>
+								<h5 class="card-title">Prix:
+									{{produit.prix}}
+									€</h5>
+								<h6 class="card-title">Catégorie:
+									{{produit.categorie.nom}}
+								</h6>
 
-							<a href="{{path("admin_app_select", {id:produit.id})}}" class="btn btn-primary">Voir le détail</a>
+								<a href="{{path("app_select", {id:produit.id})}}" class="btn btn-primary">Voir le détail</a>
 
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
 
-		{% endfor %}
-	{% endblock %}
+			{% endfor %}
+		{% endblock %}

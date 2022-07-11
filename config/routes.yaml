@@ -26,8 +26,8 @@ admin_app_delete:
   requirements:
     id: '\d+'
 
-admin_app_select:
-  path: /admin/select-produit/{id}
+app_select:
+  path: /select-produit/{id}
   controller: App\Controller\ProduitController::select
   requirements:
     id: '\d+'
