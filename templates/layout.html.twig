@@ -41,7 +41,7 @@
 							</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 								<li>
-									<a class="dropdown-item" href="{{path('admin_app_add')}}">Ajout d'un produit</a>
+									<a class="dropdown-item" href="{{path('admin_app_add',{id:user.id})}}">Ajout d'un produit</a>
 								</li>
 								<li>
 									<a class="dropdown-item" href="{{path('admin_app_addCategorie')}}">Ajout d'une catégorie</a>
@@ -57,19 +57,24 @@
 			</ul>
 		</div>
 		{% if is_granted("IS_AUTHENTICATED_FULLY") %}
-			<h6 class="text-white">
-				Bonjour
-				{{ app.user.nom ~ ' ' ~ app.user.prenom}}</h6>
+			<div class="row text-right">
+				<h6 class="text-white">
+					Bonjour
+					{{ app.user.nom ~ ' ' ~ app.user.prenom}}</h6>
+
+				<h6 class="text-white">Avez vous un accès admin? par ici<a href="{{path('app_be_admin',{id:app.user.id})}}">
+						<i class="fa-solid fa-circle-arrow-down"></i>
+					</a>
+				</h6>
+			</div>
+
 		{% endif %}
 	</div>
 </nav></div></header><main class="container mt-5 mb-5">{%  for message in app.flashes('error') %}
 <div class="alert alert-danger text-center">
-	{{message}}
-</div>{% endfor %}{%  for message in app.flashes('success') %}
+	{{message}}</div>{% endfor %}{%  for message in app.flashes('success') %}
 <div class="alert alert-success text-center">
-	{{message}}
-</div>{% endfor %}{% block content %}{% endblock %}{# {% block final_js %}{% endblock #}
-{# %} #}</main><footer class="fixed-bottom bg-light">
+	{{message}}</div>{% endfor %}{% block content %}{% endblock %}{# {% block final_js %}{% endblock #}{# %} #}</main><footer class="fixed-bottom bg-light">
 <nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-bottom">
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav mx-auto">
